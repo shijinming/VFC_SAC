@@ -1,0 +1,79 @@
+Help on class Box in module gym.spaces.box:
+
+class BBooxx(gym.spaces.space.Space)
+ |  Box(low, high, shape=None, dtype=<class 'numpy.float32'>)
+ |  
+ |  A (possibly unbounded) box in R^n. Specifically, a Box represents the
+ |  Cartesian product of n closed intervals. Each interval has the form of one
+ |  of [a, b], (-oo, b], [a, oo), or (-oo, oo).
+ |  
+ |  There are two common use cases:
+ |  
+ |  * Identical bound for each dimension::
+ |      >>> Box(low=-1.0, high=2.0, shape=(3, 4), dtype=np.float32)
+ |      Box(3, 4)
+ |      
+ |  * Independent bound for each dimension::
+ |      >>> Box(low=np.array([-1.0, -2.0]), high=np.array([2.0, 4.0]), dtype=np.float32)
+ |      Box(2,)
+ |  
+ |  Method resolution order:
+ |      Box
+ |      gym.spaces.space.Space
+ |      builtins.object
+ |  
+ |  Methods defined here:
+ |  
+ |  ____eeqq____(self, other)
+ |      Return self==value.
+ |  
+ |  ____iinniitt____(self, low, high, shape=None, dtype=<class 'numpy.float32'>)
+ |      Initialize self.  See help(type(self)) for accurate signature.
+ |  
+ |  ____rreepprr____(self)
+ |      Return repr(self).
+ |  
+ |  ccoonnttaaiinnss(self, x)
+ |      Return boolean specifying if x is a valid
+ |      member of this space
+ |  
+ |  ffrroomm__jjssoonnaabbllee(self, sample_n)
+ |      Convert a JSONable data type to a batch of samples from this space.
+ |  
+ |  iiss__bboouunnddeedd(self, manner='both')
+ |  
+ |  ssaammppllee(self)
+ |      Generates a single random sample inside of the Box. 
+ |      
+ |      In creating a sample of the box, each coordinate is sampled according to
+ |      the form of the interval:
+ |      
+ |      * [a, b] : uniform distribution 
+ |      * [a, oo) : shifted exponential distribution
+ |      * (-oo, b] : shifted negative exponential distribution
+ |      * (-oo, oo) : normal distribution
+ |  
+ |  ttoo__jjssoonnaabbllee(self, sample_n)
+ |      Convert a batch of samples from this space to a JSONable data type.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data and other attributes defined here:
+ |  
+ |  ____hhaasshh____ = None
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from gym.spaces.space.Space:
+ |  
+ |  ____ccoonnttaaiinnss____(self, x)
+ |  
+ |  sseeeedd(self, seed=None)
+ |      Seed the PRNG of this space.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from gym.spaces.space.Space:
+ |  
+ |  ____ddiicctt____
+ |      dictionary for instance variables (if defined)
+ |  
+ |  ____wweeaakkrreeff____
+ |      list of weak references to the object (if defined)
